@@ -7,7 +7,22 @@ import { db } from '../config/firebase';
 
 const image = { uri: 'https://blog.logrocket.com/wp-content/uploads/2021/07/build-ios-app-react-native.png' };
 
+const Home = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  //adding document with auto id
+  function create() {
+    addDoc(collection(db, "user_information"), {
+      email: email,
+      password: password
+    }).then(() => {
+      console.log('data saved');
+    }).catch((error) => {
+      console.log(error);
+    });
 
+  }
+  //adding doc
 const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
