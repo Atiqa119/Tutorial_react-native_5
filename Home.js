@@ -10,12 +10,13 @@ const image = { uri: 'https://blog.logrocket.com/wp-content/uploads/2021/07/buil
 const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  //delete the doc
+  function create() {
+  deleteDoc(doc(db,"user_information",'LA'));
+  }
   
 //update the doc
-const Home = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   function create() {
     updateDoc(doc(db, "user_information",'LA'), {
       email: email,
@@ -44,10 +45,6 @@ const Home = () => {
 
   
   //adding doc with specific id
-const Home = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   function create() {
     setDoc(doc(db, "user_information", "LA"), {
       email: email,
