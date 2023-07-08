@@ -10,6 +10,25 @@ const image = { uri: 'https://blog.logrocket.com/wp-content/uploads/2021/07/buil
 const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  
+//update the doc
+const Home = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function create() {
+    updateDoc(doc(db, "user_information",'LA'), {
+      email: email,
+      password: password
+    }).then(() => {
+      console.log('data saved');
+    }).catch((error) => {
+      console.log(error);
+    });
+
+  }
+
+  
   //adding document with auto id
   function create() {
     addDoc(collection(db, "user_information"), {
@@ -22,7 +41,9 @@ const Home = () => {
     });
 
   }
-  //adding doc
+
+  
+  //adding doc with specific id
 const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
